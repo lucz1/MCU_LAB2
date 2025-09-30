@@ -1,0 +1,12 @@
+ex5.c:3:6:display7SEG	16	static
+ex5.c:100:6:ex1_init	8	static
+ex5.c:106:6:ex1_run	8	static
+ex5.c:114:6:ex2_init	8	static
+ex5.c:122:6:ex2_run	8	static
+ex5.c:165:6:update7SEG	16	static
+ex5.c:202:6:ex3_init	4	static
+ex5.c:205:6:ex3_run	8	static
+ex5.c:212:6:updateClockBuffer	4	static
+ex5.c:218:6:ex5_init	4	static
+ex5.c:223:6:ex5_run	8	static
+ex5.c:239:6:ex8_run	8	static
