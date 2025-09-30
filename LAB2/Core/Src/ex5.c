@@ -96,69 +96,7 @@ void display7SEG(int num){
 		break;
 	}
 }
-int state_ex1;
-void ex1_init(){
-	state_ex1 = 0;
-	HAL_GPIO_WritePin ( EN0_GPIO_Port , EN0_Pin , GPIO_PIN_RESET );
-	HAL_GPIO_WritePin ( EN1_GPIO_Port , EN1_Pin , GPIO_PIN_SET );
-	display7SEG(1);
-}
-void ex1_run(){
-	if(state_ex1 == 0) display7SEG(1);
-	if(state_ex1 == 1) display7SEG(2);
-	state_ex1 = 1 - state_ex1;
-	HAL_GPIO_TogglePin ( EN0_GPIO_Port , EN0_Pin );
-	HAL_GPIO_TogglePin ( EN1_GPIO_Port , EN1_Pin );
-}
-int state_ex2;
-void ex2_init(){
-	state_ex2 = 0;
-	HAL_GPIO_WritePin ( EN0_GPIO_Port , EN0_Pin , GPIO_PIN_RESET );
-	HAL_GPIO_WritePin ( EN1_GPIO_Port , EN1_Pin , GPIO_PIN_SET );
-	HAL_GPIO_WritePin ( EN2_GPIO_Port , EN2_Pin , GPIO_PIN_SET );
-	HAL_GPIO_WritePin ( EN3_GPIO_Port , EN3_Pin , GPIO_PIN_SET );
-	display7SEG(1);
-}
-void ex2_run(){
-	switch(state_ex2){
-		case 0:
-			display7SEG(1);
-			state_ex2 = 1;
-			HAL_GPIO_WritePin ( EN0_GPIO_Port , EN0_Pin , GPIO_PIN_RESET );
-			HAL_GPIO_WritePin ( EN1_GPIO_Port , EN1_Pin , GPIO_PIN_SET );
-			HAL_GPIO_WritePin ( EN2_GPIO_Port , EN2_Pin , GPIO_PIN_SET );
-			HAL_GPIO_WritePin ( EN3_GPIO_Port , EN3_Pin , GPIO_PIN_SET );
-			break;
-		case 1:
-			display7SEG(2);
-			state_ex2 = 2;
-			HAL_GPIO_WritePin ( EN0_GPIO_Port , EN0_Pin , GPIO_PIN_SET );
-			HAL_GPIO_WritePin ( EN1_GPIO_Port , EN1_Pin , GPIO_PIN_RESET );
-			HAL_GPIO_WritePin ( EN2_GPIO_Port , EN2_Pin , GPIO_PIN_SET );
-			HAL_GPIO_WritePin ( EN3_GPIO_Port , EN3_Pin , GPIO_PIN_SET );
-			break;
-		case 2:
-			display7SEG(3);
-			state_ex2 = 3;
-			HAL_GPIO_WritePin ( EN0_GPIO_Port , EN0_Pin , GPIO_PIN_SET );
-			HAL_GPIO_WritePin ( EN1_GPIO_Port , EN1_Pin , GPIO_PIN_SET );
-			HAL_GPIO_WritePin ( EN2_GPIO_Port , EN2_Pin , GPIO_PIN_RESET );
-			HAL_GPIO_WritePin ( EN3_GPIO_Port , EN3_Pin , GPIO_PIN_SET );
-			break;
-		case 3:
-			display7SEG(0);
-			state_ex2 = 0;
-			HAL_GPIO_WritePin ( EN0_GPIO_Port , EN0_Pin , GPIO_PIN_SET );
-			HAL_GPIO_WritePin ( EN1_GPIO_Port , EN1_Pin , GPIO_PIN_SET );
-			HAL_GPIO_WritePin ( EN2_GPIO_Port , EN2_Pin , GPIO_PIN_SET );
-			HAL_GPIO_WritePin ( EN3_GPIO_Port , EN3_Pin , GPIO_PIN_RESET );
-			break;
-		default:
-			state_ex2 = 0;
-			break;
-	}
 
-}
 const int MAX_LED = 4;
 int index_led = 0;
 int led_buffer[4] = {1, 5, 0, 8};
@@ -198,14 +136,7 @@ void update7SEG(int index){
 	}
 
 }
-int count_ex3;
-void ex3_init(){
-	count_ex3 = 0;
-}
-void ex3_run(){
-	update7SEG(count_ex3);
-	count_ex3 = (count_ex3 + 1) % 4;
-}
+
 int hour;
 int minute;
 int second;

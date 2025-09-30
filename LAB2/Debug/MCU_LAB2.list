@@ -21,29 +21,29 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, DATA
   8 .data         0000001c  20000000  080021b4  00020000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          000000dc  2000001c  080021d0  0002001c  2**2
+  9 .bss          000000d0  2000001c  080021d0  0002001c  2**2
                   ALLOC
- 10 ._user_heap_stack 00000600  200000f8  080021d0  000200f8  2**0
+ 10 ._user_heap_stack 00000604  200000ec  080021d0  000200ec  2**0
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  0002001c  2**0
                   CONTENTS, READONLY
- 12 .debug_info   000088f1  00000000  00000000  00020045  2**0
+ 12 .debug_info   0000884f  00000000  00000000  00020045  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 0000168d  00000000  00000000  00028936  2**0
+ 13 .debug_abbrev 0000168d  00000000  00000000  00028894  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 000009b8  00000000  00000000  00029fc8  2**3
+ 14 .debug_aranges 00000988  00000000  00000000  00029f28  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 00000900  00000000  00000000  0002a980  2**3
+ 15 .debug_ranges 000008d0  00000000  00000000  0002a8b0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  00016484  00000000  00000000  0002b280  2**0
+ 16 .debug_macro  00016484  00000000  00000000  0002b180  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00009cd9  00000000  00000000  00041704  2**0
+ 17 .debug_line   00009be1  00000000  00000000  00041604  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00082044  00000000  00000000  0004b3dd  2**0
+ 18 .debug_str    00081ff3  00000000  00000000  0004b1e5  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000cd421  2**0
+ 19 .comment      00000053  00000000  00000000  000cd1d8  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002794  00000000  00000000  000cd474  2**2
+ 20 .debug_frame  000026e8  00000000  00000000  000cd22c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -495,7 +495,6 @@ void display7SEG(int num){
 
 080004f8 <update7SEG>:
 
-}
 const int MAX_LED = 4;
 int index_led = 0;
 int led_buffer[4] = {1, 5, 0, 8};
@@ -650,8 +649,7 @@ void update7SEG(int index){
  8000610:	40010800 	.word	0x40010800
 
 08000614 <updateClockBuffer>:
-	count_ex3 = (count_ex3 + 1) % 4;
-}
+
 int hour;
 int minute;
 int second;
@@ -713,10 +711,10 @@ void updateClockBuffer(){
  800067e:	46bd      	mov	sp, r7
  8000680:	bc80      	pop	{r7}
  8000682:	4770      	bx	lr
- 8000684:	2000004c 	.word	0x2000004c
+ 8000684:	20000044 	.word	0x20000044
  8000688:	66666667 	.word	0x66666667
  800068c:	20000000 	.word	0x20000000
- 8000690:	20000048 	.word	0x20000048
+ 8000690:	20000040 	.word	0x20000040
 
 08000694 <ex5_init>:
 void ex5_init(){
@@ -740,9 +738,9 @@ void ex5_init(){
  80006ae:	bc80      	pop	{r7}
  80006b0:	4770      	bx	lr
  80006b2:	bf00      	nop
- 80006b4:	2000004c 	.word	0x2000004c
- 80006b8:	20000048 	.word	0x20000048
- 80006bc:	20000044 	.word	0x20000044
+ 80006b4:	20000044 	.word	0x20000044
+ 80006b8:	20000040 	.word	0x20000040
+ 80006bc:	2000003c 	.word	0x2000003c
 
 080006c0 <ex5_run>:
 void ex5_run(){
@@ -801,9 +799,9 @@ void ex5_run(){
 }
  8000710:	bf00      	nop
  8000712:	bd80      	pop	{r7, pc}
- 8000714:	20000044 	.word	0x20000044
- 8000718:	20000048 	.word	0x20000048
- 800071c:	2000004c 	.word	0x2000004c
+ 8000714:	2000003c 	.word	0x2000003c
+ 8000718:	20000040 	.word	0x20000040
+ 800071c:	20000044 	.word	0x20000044
 
 08000720 <ex8_run>:
 int count_ex8 = 0;
@@ -860,8 +858,8 @@ void setTimer(int index, int counter) {
  8000772:	46bd      	mov	sp, r7
  8000774:	bc80      	pop	{r7}
  8000776:	4770      	bx	lr
- 8000778:	20000080 	.word	0x20000080
- 800077c:	20000054 	.word	0x20000054
+ 8000778:	20000074 	.word	0x20000074
+ 800077c:	20000048 	.word	0x20000048
 
 08000780 <timerRun>:
 void timerRun() {
@@ -914,8 +912,8 @@ void timerRun() {
  80007d2:	46bd      	mov	sp, r7
  80007d4:	bc80      	pop	{r7}
  80007d6:	4770      	bx	lr
- 80007d8:	20000054 	.word	0x20000054
- 80007dc:	20000080 	.word	0x20000080
+ 80007d8:	20000048 	.word	0x20000048
+ 80007dc:	20000074 	.word	0x20000074
 
 080007e0 <main>:
 /**
@@ -1019,9 +1017,9 @@ int main(void)
 	  if (timer_flag[0] == 1) {
  8000860:	e7d2      	b.n	8000808 <main+0x28>
  8000862:	bf00      	nop
- 8000864:	200000ac 	.word	0x200000ac
+ 8000864:	200000a0 	.word	0x200000a0
  8000868:	40010800 	.word	0x40010800
- 800086c:	20000080 	.word	0x20000080
+ 800086c:	20000074 	.word	0x20000074
 
 08000870 <SystemClock_Config>:
 /**
@@ -1219,7 +1217,7 @@ static void MX_TIM2_Init(void)
  8000976:	3718      	adds	r7, #24
  8000978:	46bd      	mov	sp, r7
  800097a:	bd80      	pop	{r7, pc}
- 800097c:	200000ac 	.word	0x200000ac
+ 800097c:	200000a0 	.word	0x200000a0
 
 08000980 <MX_GPIO_Init>:
   * @brief GPIO Initialization Function
@@ -1635,7 +1633,7 @@ void TIM2_IRQHandler(void)
  8000b0e:	bf00      	nop
  8000b10:	bd80      	pop	{r7, pc}
  8000b12:	bf00      	nop
- 8000b14:	200000ac 	.word	0x200000ac
+ 8000b14:	200000a0 	.word	0x200000a0
 
 08000b18 <SystemInit>:
   * @note   This function should be used only after reset.
@@ -1741,7 +1739,7 @@ LoopFillZerobss:
   ldr r2, =_sbss
  8000b64:	2000001c 	.word	0x2000001c
   ldr r4, =_ebss
- 8000b68:	200000f8 	.word	0x200000f8
+ 8000b68:	200000ec 	.word	0x200000ec
 
 08000b6c <ADC1_2_IRQHandler>:
  * @retval : None
@@ -1889,7 +1887,7 @@ __weak void HAL_IncTick(void)
  8000c14:	bc80      	pop	{r7}
  8000c16:	4770      	bx	lr
  8000c18:	20000018 	.word	0x20000018
- 8000c1c:	200000f4 	.word	0x200000f4
+ 8000c1c:	200000e8 	.word	0x200000e8
 
 08000c20 <HAL_GetTick>:
   * @note  This function is declared as __weak to be overwritten in case of other
@@ -1908,7 +1906,7 @@ __weak uint32_t HAL_GetTick(void)
  8000c2a:	46bd      	mov	sp, r7
  8000c2c:	bc80      	pop	{r7}
  8000c2e:	4770      	bx	lr
- 8000c30:	200000f4 	.word	0x200000f4
+ 8000c30:	200000e8 	.word	0x200000e8
 
 08000c34 <__NVIC_SetPriorityGrouping>:
            In case of a conflict between priority grouping and available
