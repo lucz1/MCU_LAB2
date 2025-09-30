@@ -123,9 +123,9 @@ int main(void)
 	  			HAL_GPIO_TogglePin ( DOT_GPIO_Port , DOT_Pin );
 	  			setTimer(1, 100);
 	  		}
-	  		if (timer_flag[3] == 1) {
+	  		if (timer_flag[2] == 1) {
 	  			ex3_run();
-	  			setTimer(3, 50);
+	  			setTimer(2, 50);
 	  		}
     /* USER CODE BEGIN 3 */
   }

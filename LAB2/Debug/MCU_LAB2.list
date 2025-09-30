@@ -855,16 +855,16 @@ int main(void)
  800073e:	2001      	movs	r0, #1
  8000740:	f7ff ff8c 	bl	800065c <setTimer>
 	  		}
-	  		if (timer_flag[3] == 1) {
+	  		if (timer_flag[2] == 1) {
  8000744:	4b07      	ldr	r3, [pc, #28]	; (8000764 <main+0x78>)
- 8000746:	68db      	ldr	r3, [r3, #12]
+ 8000746:	689b      	ldr	r3, [r3, #8]
  8000748:	2b01      	cmp	r3, #1
  800074a:	d1e3      	bne.n	8000714 <main+0x28>
 	  			ex3_run();
  800074c:	f7ff ff6e 	bl	800062c <ex3_run>
-	  			setTimer(3, 50);
+	  			setTimer(2, 50);
  8000750:	2132      	movs	r1, #50	; 0x32
- 8000752:	2003      	movs	r0, #3
+ 8000752:	2002      	movs	r0, #2
  8000754:	f7ff ff82 	bl	800065c <setTimer>
 	  if (timer_flag[0] == 1) {
  8000758:	e7dc      	b.n	8000714 <main+0x28>
