@@ -56,15 +56,15 @@ static void MX_TIM2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-int timer_flag[11];
-int timer_counter[11];
+int timer_flag[4];
+int timer_counter[4];
 
 void setTimer(int index, int counter) {
 	timer_flag[index] = 0;
 	timer_counter[index] = counter;
 }
 void timerRun() {
-	for (int i = 0; i < 11; i++) {
+	for (int i = 0; i < 4; i++) {
 		if (timer_counter[i] > 0) {
 			timer_counter[i]--;
 		}
@@ -123,13 +123,13 @@ int main(void)
 	  			HAL_GPIO_TogglePin ( DOT_GPIO_Port , DOT_Pin );
 	  			setTimer(1, 100);
 	  		}
-	  		if (timer_flag[5] == 1) {
+	  		if (timer_flag[2] == 1) {
 	  			ex5_run();
-	  			setTimer(5, 100);
+	  			setTimer(2, 100);
 	  		}
-	  		if (timer_flag[8] == 1) {
+	  		if (timer_flag[3] == 1) {
 	  			ex8_run();
-	  			setTimer(8, 25);
+	  			setTimer(3, 50);
 	  		}
     /* USER CODE BEGIN 3 */
   }
