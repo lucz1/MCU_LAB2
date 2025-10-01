@@ -112,6 +112,9 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  	setTimer(0, 100);
+  	setTimer(1, 100);
+  	setTimer(2, 50);
   while (1)
   {
     /* USER CODE END WHILE */
